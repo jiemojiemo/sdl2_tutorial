@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.10)
+
+project(sdl2_tutorial)
+
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
+add_executable(empty_window empty_window.cpp)
+target_link_libraries(empty_window PRIVATE ${CONAN_LIBS})
+
+add_executable(display_image display_image.cpp)
+target_link_libraries(display_image PRIVATE ${CONAN_LIBS})
