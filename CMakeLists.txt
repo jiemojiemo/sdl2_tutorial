@@ -16,3 +16,6 @@ target_link_libraries(loading_image_with_sdl_image PRIVATE ${CONAN_LIBS})
 
 add_executable(loading_and_saving_images loading_and_saving_images.cpp)
 target_link_libraries(loading_and_saving_images PRIVATE ${CONAN_LIBS})
+
+add_executable(saving_screenshots saving_screenshots.cpp)
+target_link_libraries(saving_screenshots PRIVATE ${CONAN_LIBS})
