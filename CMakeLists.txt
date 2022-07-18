@@ -10,3 +10,6 @@ target_link_libraries(empty_window PRIVATE ${CONAN_LIBS})
 
 add_executable(display_image display_image.cpp)
 target_link_libraries(display_image PRIVATE ${CONAN_LIBS})
+
+add_executable(loading_image_with_sdl_image loading_image_with_sdl_image.cpp)
+target_link_libraries(loading_image_with_sdl_image PRIVATE ${CONAN_LIBS})
