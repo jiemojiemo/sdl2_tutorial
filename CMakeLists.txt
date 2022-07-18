@@ -19,3 +19,6 @@ target_link_libraries(loading_and_saving_images PRIVATE ${CONAN_LIBS})
 
 add_executable(saving_screenshots saving_screenshots.cpp)
 target_link_libraries(saving_screenshots PRIVATE ${CONAN_LIBS})
+
+add_executable(handing_events handing_events.cpp)
+target_link_libraries(handing_events PRIVATE ${CONAN_LIBS})
