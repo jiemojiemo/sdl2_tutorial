@@ -11,6 +11,8 @@ extern "C" {
 #endif
 
 #include <iostream>
+#include <sstream>
+
 using namespace std;
 
 int main() {
@@ -42,26 +44,50 @@ int main() {
     for (; !quit;) {
         while (SDL_PollEvent(&event)) { // poll until all events are handled!// decide what to do with this event.
             switch (event.type) {
-            case SDL_QUIT: {
-                quit = true;
-                break;
-            }
-            case SDL_KEYDOWN: {
-                switch (event.key.keysym.sym) {
-                case SDLK_LEFT:
-                    --x;
-                    break;
-                case SDLK_RIGHT:
-                    ++x;
-                    break;
-                case SDLK_UP:
-                    --y;
-                    break;
-                case SDLK_DOWN:
-                    ++y;
+                case SDL_QUIT: {
+                    quit = true;
                     break;
                 }
-            }
+                case SDL_KEYDOWN: {
+                    switch (event.key.keysym.sym) {
+                        case SDLK_LEFT:
+                            --x;
+                            break;
+                        case SDLK_RIGHT:
+                            ++x;
+                            break;
+                        case SDLK_UP:
+                            --y;
+                            break;
+                        case SDLK_DOWN:
+                            ++y;
+                            break;
+                    }
+                }
+                case SDL_MOUSEBUTTONDOWN: {
+                    switch (event.button.button) {
+                        case SDL_BUTTON_LEFT:
+                            SDL_ShowSimpleMessageBox(0, "Mouse", "Left button was pressed!", window);
+                            break;
+                        case SDL_BUTTON_RIGHT:
+                            SDL_ShowSimpleMessageBox(0, "Mouse", "Left button was pressed!", window);
+                            break;
+                        default:
+                            SDL_ShowSimpleMessageBox(0, "Mouse", "Some other button was pressed!", window);
+                            break;
+                    }
+                }
+
+                case SDL_MOUSEMOTION: {
+                    int mouse_y = event.motion.y;
+                    int mouse_x = event.motion.x;
+
+                    std::stringstream ss;
+                    ss << "X: " << mouse_x << " Y: " << mouse_y;
+
+                    SDL_SetWindowTitle(window, ss.str().c_str());
+                    break;
+                }
             }
         }
 
