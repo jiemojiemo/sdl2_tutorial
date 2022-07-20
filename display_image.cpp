@@ -5,7 +5,9 @@
 #if defined(__cplusplus)
 extern "C" {
 #endif
+
 #include <SDL.h>
+
 #if defined(__cplusplus)
 };
 #endif
@@ -23,13 +25,13 @@ int main(int argc, char *argv[]) {
                                           SDL_WINDOWPOS_UNDEFINED,
                                           SDL_WINDOWPOS_UNDEFINED,
                                           640, 480, 0);
-    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
-    SDL_Surface* image = SDL_LoadBMP("/Users/user/Downloads/image.bmp");
-    if(image == nullptr){
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
+    SDL_Surface *image = SDL_LoadBMP("/Users/user/Downloads/image.bmp");
+    if (image == nullptr) {
         cerr << "SDL_LoadBMP failed\n";
         return -1;
     }
-    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, image);
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, image);
 
     for (; !quit;) {
         SDL_WaitEvent(&event);
@@ -41,10 +43,9 @@ int main(int argc, char *argv[]) {
         }
         }
         SDL_Rect rect = {5, 5, 300, 200};
-        SDL_RenderCopy(renderer, texture, nullptr, nullptr);
+        SDL_RenderCopy(renderer, texture, nullptr, &rect);
         SDL_RenderPresent(renderer);
     }
-
 
     SDL_DestroyTexture(texture);
     SDL_FreeSurface(image);

@@ -5,7 +5,9 @@
 #if defined(__cplusplus)
 extern "C" {
 #endif
+
 #include <SDL.h>
+
 #if defined(__cplusplus)
 };
 #endif
