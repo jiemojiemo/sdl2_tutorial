@@ -50,6 +50,7 @@ int main(int argc, char *argv[]) {
     SDL_DestroyTexture(texture);
     SDL_FreeSurface(image);
     SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
     SDL_Quit();
     return 0;
 }

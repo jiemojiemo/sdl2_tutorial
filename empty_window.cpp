@@ -13,7 +13,7 @@ extern "C" {
 #endif
 
 int main(int argc, char *argv[]) {
-    bool quit = false;
+    int quit = 0;
     SDL_Event event;
 
     SDL_Init(SDL_INIT_VIDEO);
@@ -22,17 +22,23 @@ int main(int argc, char *argv[]) {
                                           SDL_WINDOWPOS_UNDEFINED,
                                           SDL_WINDOWPOS_UNDEFINED,
                                           640, 480, 0);
+
+    //    SDL_Surface *image = SDL_LoadBMP("/Users/user/Downloads/image.bmp");
+    //    if (image == nullptr) {
+    //        return -1;
+    //    }
     for (; !quit;) {
         SDL_WaitEvent(&event);
 
         switch (event.type) {
         case SDL_QUIT: {
-            quit = true;
+            quit = 1;
             break;
         }
         }
     }
 
+    SDL_DestroyWindow(screen);
     SDL_Quit();
     return 0;
 }

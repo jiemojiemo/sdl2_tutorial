@@ -1,7 +1,9 @@
 [requires]
 sdl/2.0.20
-sdl_image/2.0.5
 sdl_ttf/2.0.18
+zlib/1.2.13
+libpng/1.6.38
+libjpeg/9c
 
 [generators]
 cmake
