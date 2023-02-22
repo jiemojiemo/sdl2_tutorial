@@ -4,6 +4,7 @@ sdl_ttf/2.0.18
 zlib/1.2.13
 libpng/1.6.38
 libjpeg/9c
+libyuv/1854
 
 [generators]
 cmake
