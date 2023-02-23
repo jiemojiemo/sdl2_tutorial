@@ -10,6 +10,8 @@ if (ENABLE_ASAN)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address")
 endif ()
 
+set(CMAKE_CXX_STANDARD 17)
+
 add_executable(empty_window empty_window.cpp lsan_suppressions.cpp)
 target_link_libraries(empty_window PRIVATE ${CONAN_LIBS})
 
@@ -31,5 +33,5 @@ target_link_libraries(handing_events PRIVATE ${CONAN_LIBS})
 add_executable(display_yuv_file display_yuv_file.cpp)
 target_link_libraries(display_yuv_file PRIVATE ${CONAN_LIBS})
 
-add_executable(test test.c lsan_suppressions.cpp)
-target_link_libraries(test PRIVATE ${CONAN_LIBS})
+add_executable(opengl_sdl2_example opengl_sdl2_example.cpp)
+target_link_libraries(opengl_sdl2_example PRIVATE ${CONAN_LIBS} "-framework OpenGl")
